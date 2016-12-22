@@ -1,0 +1,54 @@
+apply from: 'buildsystem/dependencies.gradle'
+apply plugin: 'kotlin'
+
+buildscript {
+  ext.kotlinVersion = '1.0.5-3'
+  ext.frodoPluginVersion = '0.8.3'
+
+  repositories {
+    jcenter()
+    mavenCentral()
+  }
+
+  dependencies {
+    classpath 'com.android.tools.build:gradle:2.2.3'
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+    classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+    classpath "com.fernandocejas.frodo:frodo-plugin:$frodoPluginVersion"
+  }
+}
+
+allprojects {
+  ext {
+    androidApplicationId = "com.jota.sunshine"
+    androidVersionCode = 1
+    androidVersionName = "1.0"
+    testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
+    testApplicationId = "com.jota.sunshine" + '.test'
+  }
+}
+
+task clean(type: Delete) {
+  delete rootProject.buildDir
+}
+
+task wrapper(type: Wrapper) {
+  description 'Creates the gradle wrapper.'
+  gradleVersion '2.12'
+}
+
+task runDomainUnitTests(dependsOn: [':domain:test']) {
+  description 'Run unit tests for the domain layer.'
+}
+
+task runDataUnitTests(dependsOn: [':data:cleanTestDebugUnitTest', ':data:testDebugUnitTest']) {
+  description 'Run unit tests for the data layer.'
+}
+
+task runUnitTests(dependsOn: ['runDomainUnitTests', 'runDataUnitTests']) {
+  description 'Run unit tests for both domain and data layers.'
+}
+
+task runAcceptanceTests(dependsOn: [':presentation:connectedAndroidTest']) {
+  description 'Run application acceptance tests.'
+}

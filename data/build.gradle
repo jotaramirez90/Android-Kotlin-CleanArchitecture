@@ -1,0 +1,84 @@
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath 'me.tatarka:gradle-retrolambda:3.2.3'
+  }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'com.fernandocejas.frodo'
+
+android {
+  publishNonDefault true
+
+  def globalConfiguration = rootProject.extensions.getByName("ext")
+
+  compileSdkVersion globalConfiguration.getAt("androidCompileSdkVersion")
+  buildToolsVersion globalConfiguration.getAt("androidBuildToolsVersion")
+
+  defaultConfig {
+    minSdkVersion globalConfiguration.getAt("androidMinSdkVersion")
+    targetSdkVersion globalConfiguration.getAt("androidTargetSdkVersion")
+    versionCode globalConfiguration.getAt("androidVersionCode")
+  }
+
+  buildTypes {
+    debug {
+      debuggable true
+      buildConfigField 'String', 'API',
+          '"http://api.openweathermap.org/data/2.5/weather"'
+    }
+    release {
+      debuggable false
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+      buildConfigField 'String', 'API',
+          '"http://api.openweathermap.org/data/2.5/weather"'
+    }
+  }
+
+  lintOptions {
+    quiet true
+    abortOnError false
+    ignoreWarnings true
+    disable 'InvalidPackage'
+    disable 'OldTargetApi'
+  }
+}
+
+dependencies {
+  def dataDependencies = rootProject.ext.dataDependencies
+  def testDependencies = rootProject.ext.dataTestDependencies
+
+  compile presentationDependencies.kotlin
+
+  compile project(':domain')
+
+  //RxJava
+  compile dataDependencies.rxJava
+  compile dataDependencies.rxAndroid
+  compile presentationDependencies.rxKotlin
+
+  //Retrofit
+  compile dataDependencies.retrofit
+  compile dataDependencies.retrofitConverterGson
+  compile dataDependencies.retrofitAdapterRxJava
+
+  //Dagger2
+  kapt dataDependencies.daggerCompiler
+  compile dataDependencies.dagger
+
+  provided dataDependencies.javaxAnnotation
+
+  //Testing
+  testCompile testDependencies.jUnit
+  testCompile testDependencies.assertj
+  testCompile testDependencies.mockito
+  testCompile testDependencies.robolectric
+}

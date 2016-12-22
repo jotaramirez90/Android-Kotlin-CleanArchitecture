@@ -1,0 +1,29 @@
+apply plugin: 'java'
+apply plugin: 'kotlin'
+
+configurations {
+  provided
+}
+
+sourceSets {
+  main {
+    compileClasspath += configurations.provided
+  }
+}
+
+dependencies {
+  def domainDependencies = rootProject.ext.domainDependencies
+  def domainTestDependencies = rootProject.ext.domainTestDependencies
+
+  compile domainDependencies.kotlin
+  compile domainDependencies.rxKotlin
+  compile domainDependencies.rxJava
+
+  provided domainDependencies.daggerCompiler
+  compile domainDependencies.dagger
+
+  provided domainDependencies.javaxAnnotation
+
+  testCompile domainTestDependencies.jUnit
+  testCompile domainTestDependencies.mockito
+}

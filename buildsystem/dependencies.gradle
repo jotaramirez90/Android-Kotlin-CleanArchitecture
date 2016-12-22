@@ -1,0 +1,90 @@
+allprojects {
+  repositories {
+    jcenter()
+  }
+}
+
+ext {
+  //Android
+  androidBuildToolsVersion = "25.0.1"
+  androidMinSdkVersion = 18
+  androidTargetSdkVersion = 25
+  androidCompileSdkVersion = 25
+
+  //Kotlin
+  kotlinVersion = '1.0.5-3'
+  ankoVersion = '0.9'
+
+  //Libraries
+  appcompatVersion = '25.0.1'
+  supportV13Version = '25.0.1'
+  designVersion = '25.0.1'
+  recyclerViewVersion = '25.0.1'
+  multidexVersion = '1.0.0'
+  rxJavaVersion = '1.2.2'
+  rxAndroidVersion = '1.2.1'
+  rxKotlinVersion = '0.60.0'
+  retrofitVersion = '2.1.0'
+  daggerVersion = '2.8'
+  picassoVersion = '2.5.2'
+  javaxAnnotationVersion = '1.0'
+  frodoPluginVersion = "0.8.3"
+  neenbedanktVersion = "1.4"
+
+  //Testing
+  robolectricVersion = '3.0'
+  jUnitVersion = '4.12'
+  assertJVersion = '1.7.1'
+  mockitoVersion = '1.9.5'
+  dexmakerVersion = '1.0'
+  espressoVersion = '2.0'
+  testingSupportLibVersion = '0.1'
+
+  presentationDependencies = [appcompat      : "com.android.support:appcompat-v7:${appcompatVersion}",
+                              supportV13     : "com.android.support:support-v13:${supportV13Version}",
+                              design         : "com.android.support:design:${designVersion}",
+                              recyclerView   : "com.android.support:recyclerview-v7:${recyclerViewVersion}",
+                              multidex       : "com.android.support:multidex:${multidexVersion}",
+                              kotlin         : "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
+                              anko           : "org.jetbrains.anko:anko-common:${ankoVersion}",
+                              rxJava         : "io.reactivex:rxjava:${rxJavaVersion}",
+                              rxAndroid      : "io.reactivex:rxandroid:${rxAndroidVersion}",
+                              rxKotlin       : "io.reactivex:rxkotlin:${rxKotlinVersion}",
+                              daggerCompiler : "com.google.dagger:dagger-compiler:${daggerVersion}",
+                              dagger         : "com.google.dagger:dagger:${daggerVersion}",
+                              picasso        : "com.squareup.picasso:picasso:${picassoVersion}",
+                              javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+                              jUnit          : "junit:junit:${jUnitVersion}"]
+
+  presentationTestDependencies = [mockito          : "org.mockito:mockito-core:${mockitoVersion}",
+                                  dexmaker         : "com.google.dexmaker:dexmaker:${dexmakerVersion}",
+                                  dexmakerMockito  : "com.google.dexmaker:dexmaker-mockito:${dexmakerVersion}",
+                                  espresso         : "com.android.support.test.espresso:espresso-core:${espressoVersion}",
+                                  testingSupportLib: "com.android.support.test:testing-support-lib:${testingSupportLibVersion}"]
+
+  domainDependencies = [daggerCompiler : "com.google.dagger:dagger-compiler:${daggerVersion}",
+                        dagger         : "com.google.dagger:dagger:${daggerVersion}",
+                        javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+                        rxJava         : "io.reactivex:rxjava:${rxJavaVersion}",
+                        kotlin         : "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
+                        rxKotlin       : "io.reactivex:rxkotlin:${rxKotlinVersion}"]
+
+  domainTestDependencies = [jUnit  : "junit:junit:${jUnitVersion}",
+                            mockito: "org.mockito:mockito-core:${mockitoVersion}",]
+
+  dataDependencies = [daggerCompiler       : "com.google.dagger:dagger-compiler:${daggerVersion}",
+                      dagger               : "com.google.dagger:dagger:${daggerVersion}",
+                      kotlin               : "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
+                      rxJava               : "io.reactivex:rxjava:${rxJavaVersion}",
+                      rxAndroid            : "io.reactivex:rxandroid:${rxAndroidVersion}",
+                      rxKotlin             : "io.reactivex:rxkotlin:${rxKotlinVersion}",
+                      retrofit             : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+                      retrofitConverterGson: "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+                      retrofitAdapterRxJava: "com.squareup.retrofit2:adapter-rxjava:${retrofitVersion}",
+                      javaxAnnotation      : "javax.annotation:jsr250-api:${javaxAnnotationVersion}"]
+
+  dataTestDependencies = [jUnit      : "junit:junit:${jUnitVersion}",
+                          assertj    : "org.assertj:assertj-core:${assertJVersion}",
+                          mockito    : "org.mockito:mockito-core:${mockitoVersion}",
+                          robolectric: "org.robolectric:robolectric:${robolectricVersion}",]
+}
