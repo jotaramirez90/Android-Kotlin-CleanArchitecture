@@ -1,13 +1,48 @@
 package com.jota.sunshine.view.activity
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.jota.sunshine.R
+import com.jota.sunshine.internal.di.HasComponent
+import com.jota.sunshine.internal.di.components.DaggerMainComponent
+import com.jota.sunshine.internal.di.components.MainComponent
+import com.jota.sunshine.internal.di.modules.MainModule
+import com.jota.sunshine.view.fragment.ForecastFragment
+import com.jota.sunshine.view.fragment.SettingsFragment
+import com.jota.sunshine.view.fragment.WeatherFragment
+import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+
+class MainActivity : BaseActivity(), HasComponent<MainComponent> {
+    override fun getLayoutResource(): Int {
+        return R.layout.activity_main
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        initializeActivity()
+    }
+
+    private fun initializeActivity() {
+        bottom_navigation.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.action_weather ->
+                    replaceFragment(R.id.container, WeatherFragment.newInstance())
+                R.id.action_forecast ->
+                    replaceFragment(R.id.container, ForecastFragment.newInstance())
+                R.id.action_settings ->
+                    replaceFragment(R.id.container, SettingsFragment.newInstance())
+            }
+            true
+        }
+    }
+
+    private val mainComponent: MainComponent get() = DaggerMainComponent.builder()
+            .applicationComponent(getApplicationComponent())
+            .activityModule(getActivityModule())
+            .mainModule(MainModule())
+            .build()
+
+    override fun getComponent(): MainComponent {
+        return mainComponent
     }
 }

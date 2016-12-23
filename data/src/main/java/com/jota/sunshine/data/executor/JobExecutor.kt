@@ -23,9 +23,6 @@ class JobExecutor @Inject constructor() : ThreadExecutor {
     }
 
     override fun execute(runnable: Runnable) {
-        if (runnable == null) {
-            throw IllegalArgumentException("Runnable to execute cannot be null")
-        }
         this.threadPoolExecutor.execute(runnable)
     }
 

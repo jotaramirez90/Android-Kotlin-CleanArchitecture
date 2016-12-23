@@ -129,6 +129,7 @@ dependencies {
   androidTestCompile presentationTestDependencies.dexmakerMockito
   androidTestCompile presentationTestDependencies.espresso
   androidTestCompile presentationTestDependencies.testingSupportLib
+  compile 'com.android.support:support-v4:25.0.1'
 }
 
 repositories {

@@ -50,6 +50,9 @@ android {
     disable 'InvalidPackage'
     disable 'OldTargetApi'
   }
+  sourceSets {
+    main.java.srcDirs += 'src/main/kotlin'
+  }
 }
 
 dependencies {
@@ -81,4 +84,7 @@ dependencies {
   testCompile testDependencies.assertj
   testCompile testDependencies.mockito
   testCompile testDependencies.robolectric
+}
+repositories {
+  mavenCentral()
 }
