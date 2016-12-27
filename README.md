@@ -1,0 +1,25 @@
+# Android-Kotlin-Sunshine
+
+This is a sample app that is part of a blog post I have written about how to architect android application using the Uncle Bob's clean architecture and [Fernando Cejas Android-CleanArchitecture](https://github.com/android10/Android-CleanArchitecture) in Kotlin with RxJava2, Dagger2 and Retrofit2.
+
+Clean architecture
+-----------------
+![http://fernandocejas.com/2015/07/18/architecting-android-the-evolution/](http://fernandocejas.com/wp-content/uploads/2014/09/clean_architecture1.png)
+
+
+License
+=======
+
+    Copyright 2016 Jota Ramirez
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
