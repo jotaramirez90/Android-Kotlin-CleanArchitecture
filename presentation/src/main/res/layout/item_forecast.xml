@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:gravity="center_vertical"
+    android:id="@+id/forecastLayout"
+    >
+
+  <ImageView
+      android:id="@+id/iconWeather"
+      android:layout_width="44dp"
+      android:layout_height="44dp"
+      android:layout_marginEnd="24dp"
+      />
+
+  <LinearLayout
+      android:id="@+id/detailsLayout"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:gravity="start"
+      >
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:id="@+id/tempLayout"
+        >
+      <ImageView
+          android:layout_width="20dp"
+          android:layout_height="20dp"
+          android:src="@drawable/ic_temp_max"
+          android:layout_gravity="start"
+          android:padding="2dp"
+          />
+
+      <TextView
+          android:id="@+id/maxTempText"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textSize="16sp"
+          android:textColor="@color/grey"
+          />
+
+      <ImageView
+          android:layout_width="20dp"
+          android:layout_height="20dp"
+          android:src="@drawable/ic_temp_min"
+          android:layout_gravity="center"
+          android:padding="2dp"
+          />
+
+      <TextView
+          android:id="@+id/minTempText"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textSize="16sp"
+          android:textColor="@color/grey"
+          />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/dateText"
+        android:layout_marginTop="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="start"
+        android:textSize="12sp"
+        />
+
+  </LinearLayout>
+
+  <TextView
+      android:id="@+id/currentTempText"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:textAlignment="textEnd"
+      android:textSize="20sp"
+      />
+
+</LinearLayout>

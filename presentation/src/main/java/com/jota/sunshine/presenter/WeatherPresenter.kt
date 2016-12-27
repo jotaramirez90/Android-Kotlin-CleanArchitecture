@@ -34,10 +34,12 @@ class WeatherPresenter @Inject constructor(
     private inner class CityWeatherObserver : DefaultObserver<CityWeather>() {
 
         override fun onError(e: Throwable) {
+            super.onError(e)
             view?.error(e.message!!)
         }
 
         override fun onNext(cityWeather: CityWeather) {
+            super.onNext(cityWeather)
             view?.setCityWeather(cityWeatherModelDataMapper.transform(cityWeather))
         }
     }

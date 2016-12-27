@@ -1,6 +1,7 @@
 package com.jota.sunshine.data.net
 
 import com.jota.sunshine.data.BuildConfig
+import com.jota.sunshine.data.entity.CityForecastEntity
 import com.jota.sunshine.data.entity.CityWeatherEntity
 import io.reactivex.Observable
 import retrofit2.Retrofit
@@ -28,4 +29,7 @@ class RestApi @Inject constructor() {
         return apiService.getCityWeather(latitude, longitude, units, BuildConfig.APPID)
     }
 
+    fun getCityForecast(latitude: String, longitude: String): Observable<CityForecastEntity> {
+        return apiService.getCityForecast(latitude, longitude, units, BuildConfig.APPID)
+    }
 }

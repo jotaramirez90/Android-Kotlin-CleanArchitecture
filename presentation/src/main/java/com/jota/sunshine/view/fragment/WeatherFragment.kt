@@ -3,6 +3,7 @@ package com.jota.sunshine.view.fragment
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Toast
+import com.jota.sunshine.Constants.SYMBOL_C
 import com.jota.sunshine.R
 import com.jota.sunshine.internal.di.components.MainComponent
 import com.jota.sunshine.model.CityWeatherModel
@@ -47,9 +48,9 @@ class WeatherFragment : BaseFragment(), WeatherView {
         iconWeather.setImageDrawable(context.resources.getDrawable(
                 WeatherUtils.getIconWeather(cityWeather?.weather?.id?.toInt()!!)))
         cityText.text = cityWeather?.name
-        tempText.text = (cityWeather?.main?.temp.toString() + "ºC")
-        maxTempText.text = (cityWeather?.main?.temp_max.toString() + "ºC")
-        minTempText.text = (cityWeather?.main?.temp_min.toString() + "ºC")
+        tempText.text = (cityWeather?.main?.temp.toString() + SYMBOL_C)
+        maxTempText.text = (cityWeather?.main?.temp_max.toString() + SYMBOL_C)
+        minTempText.text = (cityWeather?.main?.temp_min.toString() + SYMBOL_C)
     }
 
     override fun error(error: String) {
