@@ -5,7 +5,6 @@ import com.jota.sunshine.internal.di.modules.MainModule
 import com.jota.sunshine.internal.di.scope.PerFragment
 import com.jota.sunshine.view.activity.MainActivity
 import com.jota.sunshine.view.fragment.ForecastFragment
-import com.jota.sunshine.view.fragment.SettingsFragment
 import com.jota.sunshine.view.fragment.WeatherFragment
 import dagger.Component
 
@@ -20,5 +19,4 @@ interface MainComponent {
 
     fun inject(forecastFragment: ForecastFragment)
 
-    fun inject(settingsFragment: SettingsFragment)
 }

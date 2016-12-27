@@ -2,47 +2,41 @@ package com.jota.sunshine.domain.interactors
 
 import com.jota.sunshine.domain.executor.PostExecutionThread
 import com.jota.sunshine.domain.executor.ThreadExecutor
-import rx.Observable
-import rx.Subscriber
-import rx.functions.Action0
-import rx.functions.Action1
-import rx.schedulers.Schedulers
-import rx.subscriptions.Subscriptions
+import dagger.internal.Preconditions
+import io.reactivex.Observable
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.Disposable
+import io.reactivex.observers.DisposableObserver
+import io.reactivex.schedulers.Schedulers
 
-abstract class UseCase<T> protected constructor(private val threadExecutor: ThreadExecutor,
-                                                private val postExecutionThread: PostExecutionThread) {
 
-    private var subscription = Subscriptions.empty()
+abstract class UseCase<T, Params> internal constructor(private val threadExecutor: ThreadExecutor,
+                                                       private val postExecutionThread: PostExecutionThread) {
+    private val disposables: CompositeDisposable
 
-    protected abstract fun buildUseCaseObservable(): Observable<T>
-
-    @SuppressWarnings("unchecked")
-    fun execute(useCaseSubscriber: Subscriber<T>) {
-        this.subscription = this.buildUseCaseObservable()
-                .subscribeOn(Schedulers.from(threadExecutor))
-                .observeOn(postExecutionThread.scheduler)
-                .subscribe(useCaseSubscriber)
+    init {
+        this.disposables = CompositeDisposable()
     }
 
-    @SuppressWarnings("unchecked")
-    fun execute(onNext: Action1<T>, onError: Action1<Throwable>) {
-        this.subscription = this.buildUseCaseObservable()
+    internal abstract fun buildUseCaseObservable(params: Params): Observable<T>
+
+    fun execute(observer: DisposableObserver<T>, params: Params) {
+        Preconditions.checkNotNull(observer)
+        val observable = this.buildUseCaseObservable(params)
                 .subscribeOn(Schedulers.from(threadExecutor))
                 .observeOn(postExecutionThread.scheduler)
-                .subscribe(onNext, onError)
+        addDisposable(observable.subscribeWith(observer))
     }
 
-    @SuppressWarnings("unchecked")
-    fun execute(onNext: Action1<T>, onError: Action1<Throwable>, onCompleted: Action0) {
-        this.subscription = this.buildUseCaseObservable()
-                .subscribeOn(Schedulers.from(threadExecutor))
-                .observeOn(postExecutionThread.scheduler)
-                .subscribe(onNext, onError, onCompleted)
-    }
-
-    fun unsubscribe() {
-        if (!subscription.isUnsubscribed) {
-            subscription.unsubscribe()
+    fun dispose() {
+        if (!disposables.isDisposed()) {
+            disposables.dispose()
         }
+    }
+
+    private fun addDisposable(disposable: Disposable) {
+        Preconditions.checkNotNull(disposable)
+        Preconditions.checkNotNull(disposables)
+        disposables.add(disposable)
     }
 }

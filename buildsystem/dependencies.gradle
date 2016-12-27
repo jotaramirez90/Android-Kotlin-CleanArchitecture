@@ -1,6 +1,9 @@
 allprojects {
   repositories {
     jcenter()
+    maven {
+      url = "https://oss.sonatype.org/content/repositories/snapshots/"
+    }
   }
 }
 
@@ -21,10 +24,10 @@ ext {
   designVersion = '25.0.1'
   recyclerViewVersion = '25.0.1'
   multidexVersion = '1.0.0'
-  rxJavaVersion = '1.2.2'
-  rxAndroidVersion = '1.2.1'
+  rxJavaVersion = '2.0.2'
+  rxAndroidVersion = '2.0.1'
   rxKotlinVersion = '0.60.0'
-  retrofitVersion = '2.1.0'
+  retrofitVersion = '2.1.1-SNAPSHOT'
   daggerVersion = '2.8'
   picassoVersion = '2.5.2'
   javaxAnnotationVersion = '1.0'
@@ -47,8 +50,8 @@ ext {
                               multidex       : "com.android.support:multidex:${multidexVersion}",
                               kotlin         : "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
                               anko           : "org.jetbrains.anko:anko-common:${ankoVersion}",
-                              rxJava         : "io.reactivex:rxjava:${rxJavaVersion}",
-                              rxAndroid      : "io.reactivex:rxandroid:${rxAndroidVersion}",
+                              rxJava         : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+                              rxAndroid      : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
                               rxKotlin       : "io.reactivex:rxkotlin:${rxKotlinVersion}",
                               daggerCompiler : "com.google.dagger:dagger-compiler:${daggerVersion}",
                               dagger         : "com.google.dagger:dagger:${daggerVersion}",
@@ -65,7 +68,7 @@ ext {
   domainDependencies = [daggerCompiler : "com.google.dagger:dagger-compiler:${daggerVersion}",
                         dagger         : "com.google.dagger:dagger:${daggerVersion}",
                         javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
-                        rxJava         : "io.reactivex:rxjava:${rxJavaVersion}",
+                        rxJava         : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
                         kotlin         : "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
                         rxKotlin       : "io.reactivex:rxkotlin:${rxKotlinVersion}"]
 
@@ -75,12 +78,12 @@ ext {
   dataDependencies = [daggerCompiler       : "com.google.dagger:dagger-compiler:${daggerVersion}",
                       dagger               : "com.google.dagger:dagger:${daggerVersion}",
                       kotlin               : "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
-                      rxJava               : "io.reactivex:rxjava:${rxJavaVersion}",
-                      rxAndroid            : "io.reactivex:rxandroid:${rxAndroidVersion}",
+                      rxJava               : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+                      rxAndroid            : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
                       rxKotlin             : "io.reactivex:rxkotlin:${rxKotlinVersion}",
                       retrofit             : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
                       retrofitConverterGson: "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
-                      retrofitAdapterRxJava: "com.squareup.retrofit2:adapter-rxjava:${retrofitVersion}",
+                      retrofitAdapterRxJava: "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}",
                       javaxAnnotation      : "javax.annotation:jsr250-api:${javaxAnnotationVersion}"]
 
   dataTestDependencies = [jUnit      : "junit:junit:${jUnitVersion}",

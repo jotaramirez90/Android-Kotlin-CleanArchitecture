@@ -1,6 +1,6 @@
 package com.jota.sunshine.domain.executor
 
-import rx.Scheduler
+import io.reactivex.Scheduler
 
 interface PostExecutionThread {
     val scheduler: Scheduler

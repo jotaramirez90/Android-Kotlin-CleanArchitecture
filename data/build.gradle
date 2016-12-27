@@ -32,7 +32,9 @@ android {
     debug {
       debuggable true
       buildConfigField 'String', 'API',
-          '"http://api.openweathermap.org/data/2.5/weather"'
+          '"http://api.openweathermap.org/data/2.5/"'
+      buildConfigField 'String', 'APPID',
+          '"YOUR_API_KEY"'
     }
     release {
       debuggable false
@@ -40,6 +42,8 @@ android {
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
       buildConfigField 'String', 'API',
           '"http://api.openweathermap.org/data/2.5/weather"'
+      buildConfigField 'String', 'APPID',
+          '"YOUR_API_KEY"'
     }
   }
 

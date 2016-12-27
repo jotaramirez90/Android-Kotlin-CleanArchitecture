@@ -21,13 +21,14 @@ android {
   }
 
   packagingOptions {
-    exclude 'META-INF/LICENSE.txt'
-    exclude 'META-INF/NOTICE.txt'
+    exclude 'LICENSE.txt'
     exclude 'META-INF/DEPENDENCIES'
-    exclude 'META-INF/LICENSE'
+    exclude 'META-INF/ASL2.0'
     exclude 'META-INF/NOTICE'
-    exclude 'META-INF/services/javax.annotation.processing.Processor'
+    exclude 'META-INF/LICENSE'
+    exclude 'META-INF/rxjava.properties'
   }
+
   signingConfigs {
     debug {
       storeFile file('../buildsystem/debug.keystore')
@@ -129,7 +130,6 @@ dependencies {
   androidTestCompile presentationTestDependencies.dexmakerMockito
   androidTestCompile presentationTestDependencies.espresso
   androidTestCompile presentationTestDependencies.testingSupportLib
-  compile 'com.android.support:support-v4:25.0.1'
 }
 
 repositories {
