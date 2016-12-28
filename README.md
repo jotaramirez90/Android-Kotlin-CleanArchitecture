@@ -6,6 +6,17 @@ Clean architecture
 -----------------
 ![http://fernandocejas.com/2015/07/18/architecting-android-the-evolution/](http://fernandocejas.com/wp-content/uploads/2014/09/clean_architecture1.png)
 
+Developed By
+------------
+
+* Jota Ramirez - <jotaramirez90@gmail.com>
+
+<a href="https://twitter.com/JotaRamirez90">
+  <img alt="Follow me on Twitter" src="https://image.freepik.com/iconos-gratis/twitter-logo_318-40209.jpg" height="60" width="60"/>
+</a>
+<a href="https://es.linkedin.com/in/josejuanramirez">
+  <img alt="Add me to Linkedin" src="https://image.freepik.com/iconos-gratis/boton-del-logotipo-linkedin_318-84979.png" height="60" width="60"/>
+</a>
 
 License
 =======
@@ -23,3 +34,4 @@ License
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+    
