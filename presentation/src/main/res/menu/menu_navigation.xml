@@ -17,10 +17,10 @@
       app:showAsAction="ifRoom"
       />
   <item
-      android:id="@+id/action_settings"
+      android:id="@+id/action_info"
       android:enabled="true"
       android:icon="@drawable/ic_navigation_settings"
-      android:title="@string/navigation_settings"
+      android:title="@string/navigation_info"
       app:showAsAction="ifRoom"
       />
 </menu>

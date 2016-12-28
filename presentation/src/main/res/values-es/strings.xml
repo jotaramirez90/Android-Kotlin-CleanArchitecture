@@ -3,6 +3,8 @@
 
   <string name="navigation_weather">Tiempo</string>
   <string name="navigation_forecast">Previsión</string>
-  <string name="navigation_settings">Ajustes</string>
+  <string name="navigation_info">Info</string>
+
+  <string name="info_text">Creada por Jota Ramirez</string>
 
 </resources>

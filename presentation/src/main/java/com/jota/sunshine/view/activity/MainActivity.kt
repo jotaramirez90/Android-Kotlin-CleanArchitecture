@@ -7,6 +7,7 @@ import com.jota.sunshine.internal.di.components.DaggerMainComponent
 import com.jota.sunshine.internal.di.components.MainComponent
 import com.jota.sunshine.internal.di.modules.MainModule
 import com.jota.sunshine.view.fragment.ForecastFragment
+import com.jota.sunshine.view.fragment.InfoFragment
 import com.jota.sunshine.view.fragment.WeatherFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -28,6 +29,8 @@ class MainActivity : BaseActivity(), HasComponent<MainComponent> {
                     replaceFragment(R.id.container, WeatherFragment.newInstance())
                 R.id.action_forecast ->
                     replaceFragment(R.id.container, ForecastFragment.newInstance())
+                R.id.action_info ->
+                    replaceFragment(R.id.container, InfoFragment.newInstance())
             }
             true
         }
