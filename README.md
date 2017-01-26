@@ -6,6 +6,19 @@ Clean architecture
 -----------------
 ![http://fernandocejas.com/2015/07/18/architecting-android-the-evolution/](http://fernandocejas.com/wp-content/uploads/2014/09/clean_architecture1.png)
 
+Libraries used on the sample project
+------------
+
+* [RecyclerView](https://developer.android.com/training/material/lists-cards.html?hl=en)
+* [RxJava](https://github.com/ReactiveX/RxJava)
+* [RxAndroid](https://github.com/ReactiveX/RxAndroid)
+* [RxKotlin](https://github.com/ReactiveX/RxKotlin)
+* [Retrofit](https://github.com/square/retrofit)
+* [Dagger](https://github.com/google/dagger)
+* [Picasso](https://github.com/square/picasso)
+* [Butterknife](https://github.com/JakeWharton/butterknife)
+* [Frodo](https://github.com/android10/frodo)
+
 Developed By
 ------------
 
