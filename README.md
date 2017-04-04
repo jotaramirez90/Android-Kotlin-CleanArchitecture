@@ -4,7 +4,7 @@ This is a sample app about how to architect android application using the Uncle 
 
 Clean architecture
 -----------------
-![http://fernandocejas.com/2015/07/18/architecting-android-the-evolution/](http://fernandocejas.com/wp-content/uploads/2014/09/clean_architecture1.png)
+![http://fernandocejas.com/2015/07/18/architecting-android-the-evolution/](https://github.com/android10/Sample-Data/blob/master/Android-CleanArchitecture/clean_architecture.png)
 
 Libraries used on the sample project
 ------------
