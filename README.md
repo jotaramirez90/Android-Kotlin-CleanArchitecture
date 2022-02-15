@@ -1,4 +1,4 @@
-# Android-Kotlin-CleanArchitecture
+# Android-Kotlin-CleanArchitecture 2
 
 This is a sample app about how to architect android application using the Uncle Bob's clean architecture and [Fernando Cejas Android-CleanArchitecture](https://github.com/android10/Android-CleanArchitecture) in Kotlin with RxJava2, Dagger2 and Retrofit2.
 
